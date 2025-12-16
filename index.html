@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Olivier Bisson — geometric statistics, applied differential geometry." />
+  <title>Olivier Bisson — Research</title>
+
+  <!-- Favicons (optional). Put favicon.ico in the same folder. -->
+  <link rel="icon" href="favicon.ico" />
+
+  <style>
+    /* ====== Minimal, clean, responsive styles ====== */
+    :root{
+      --bg:#0b0f19;
+      --panel:#0f1626;
+      --text:#e9eefc;
+      --muted:#b8c2e0;
+      --link:#8ab4ff;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 980px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#ffffff;
+        --panel:#f7f8fc;
+        --text:#0b1220;
+        --muted:#4b5565;
+        --link:#1d4ed8;
+        --border:rgba(0,0,0,.10);
+        --shadow: 0 12px 30px rgba(0,0,0,.08);
+      }
+    }
+    [data-theme="dark"]{
+      --bg:#0b0f19;
+      --panel:#0f1626;
+      --text:#e9eefc;
+      --muted:#b8c2e0;
+      --link:#8ab4ff;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    [data-theme="light"]{
+      --bg:#ffffff;
+      --panel:#f7f8fc;
+      --text:#0b1220;
+      --muted:#4b5565;
+      --link:#1d4ed8;
+      --border:rgba(0,0,0,.10);
+      --shadow: 0 12px 30px rgba(0,0,0,.08);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: var(--sans);
+      background: var(--bg);
+      color:var(--text);
+      line-height:1.55;
+      position: relative;
+    }
+
+    /* Smooth, non-resetting background layer (stays consistent while scrolling) */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(1200px 700px at 20% 0%, rgba(138,180,255,.18), transparent 60%),
+        radial-gradient(1000px 650px at 110% 10%, rgba(167,139,250,.15), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.04), transparent 40%);
+    }
+    a{color:var(--link); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 64px}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:10;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      background: color-mix(in srgb, var(--bg) 86%, transparent);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width: 220px;
+    }
+    .brand strong{font-size:15px; letter-spacing:.2px}
+    .brand div{display:flex; flex-direction:column; line-height:1.2}
+    .brand small{color:var(--muted)}
+
+    nav a{
+      display:inline-block;
+      padding:8px 10px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-size:14px;
+    }
+    nav a:hover{background:color-mix(in srgb, var(--panel) 70%, transparent); color:var(--text); text-decoration:none}
+
+    .btn{
+      border:1px solid var(--border);
+      background:color-mix(in srgb, var(--panel) 86%, transparent);
+      color:var(--text);
+      padding:8px 10px;
+      border-radius: 12px;
+      cursor:pointer;
+      font-size:14px;
+    }
+    .btn:hover{filter:brightness(1.05)}
+
+    .hero{padding:28px 0 10px}
+    .card{
+      background: color-mix(in srgb, var(--panel) 92%, transparent);
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .grid{display:grid; gap:16px; align-items:start}
+
+    .stack{display:grid; gap:16px}
+    @media (min-width: 880px){
+      .grid{grid-template-columns: .95fr 1.35fr; align-items:stretch}
+      .photoFrame{aspect-ratio:auto; height:100%}
+    }
+
+    h1{margin:0 0 6px; font-size: 28px; letter-spacing: -.3px}
+    h2{margin:0 0 10px; font-size: 18px}
+    p{margin:10px 0}
+    .muted{color:var(--muted)}
+
+    .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
+    .chip{
+      font-family: var(--mono);
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border:1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 84%, transparent);
+      color: var(--muted);
+    }
+
+    section{margin-top:16px}
+    .photoFrame{
+      width:100%;
+      border-radius: var(--radius);
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: var(--panel);
+      overflow:hidden;
+      aspect-ratio: 4 / 5; /* mobile */
+    }
+    .heroPhoto{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    section > .card{scroll-margin-top: 82px}
+
+    .list{display:grid; gap:10px}
+    .item{
+      border:1px solid var(--border);
+      background: color-mix(in srgb, var(--panel) 86%, transparent);
+      border-radius: 14px;
+      padding: 14px;
+    }
+    .item .title{font-weight: 650}
+
+    /* Publications: default layout (links below title) */
+    .titleRow{display:block}
+    .titleRow .links{margin-top:8px; white-space:normal}
+
+    .item .meta{color:var(--muted); font-size: 13px; margin-top:3px}
+    .item .links{margin-top:8px; display:flex; gap:10px; flex-wrap:wrap}
+
+    .two{display:grid; gap:12px}
+    @media (min-width: 720px){
+      .two{grid-template-columns: 1fr 1fr}
+    }
+
+    footer{
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align:center;
+    }
+
+    .personalGrid{display:grid; gap:14px; align-items:start}
+    @media (min-width: 820px){
+      .personalGrid{grid-template-columns: 1.2fr .8fr}
+    }
+    .photoGrid{display:grid; grid-template-columns: repeat(3, 1fr); gap:10px}
+    .funPhoto{
+      width:100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      display:block;
+    }
+
+    /* Print-friendly */
+    @media print{
+      header{position:static; backdrop-filter:none}
+      .btn{display:none}
+      body{background:#fff}
+      .card,.item{box-shadow:none}
+      a{text-decoration:underline}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ==========================================================
+       EDIT GUIDE (use Ctrl/Cmd+F to jump fast)
+
+       1) BASIC IDENTITY
+          - Search: [Your Name], [Affiliation], [City], [Role/Title]
+          - Update <title> and the big H1 in the About card.
+
+       2) YOUR PHOTO + FILES
+          - Put your photo next to this file as: me.jpg
+          - Put your CV next to this file as: CV.pdf
+          - Optional favicon: favicon.ico
+
+       3) LINKS
+          - Search: Google Scholar / GitHub / LinkedIn
+
+       4) ABOUT TEXT + KEYWORDS
+          - Search: "I work on" and "Keyword 1"
+
+       5) RESEARCH PROJECTS
+          - Search: "Project A" / "Project B"
+
+       6) PUBLICATIONS / PREPRINTS
+          - Search: "Publications" then duplicate an item block.
+
+       7) TEACHING / TALKS / CONTACT
+          - Search: Teaching / Talks / Contact
+     ========================================================== -->
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div>
+          <strong>Olivier Bisson</strong>
+          <small>Inria · Université Côte d’Azur · Nice, France</small>
+        </div>
+      </div>
+
+      <nav aria-label="Site navigation">
+        <a href="#research">Research</a>
+        <a href="#pubs">Publications</a>
+        <a href="#talks">Talks</a>
+        <a href="#teaching">Teaching</a>
+      </nav>
+
+      <button class="btn" id="themeBtn" type="button" aria-label="Toggle theme">🌓</button>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ====== HERO ====== -->
+    <div class="hero">
+      <div class="grid">
+
+        <!-- Big photo first (add me.jpg next to index.html) -->
+        <div class="photoFrame" aria-label="Portrait">
+          <img class="heroPhoto" src="me.jpg" alt="Portrait of Olivier Bisson" onerror="this.style.display='none'" />
+        </div>
+
+        <!-- About / intro second -->
+        <div class="stack">
+
+          <div class="card" id="about">
+            <h1>Olivier Bisson</h1>
+            <div class="muted">PhD student in Geometric Statistics at Inria, Université Côte d’Azur</div>
+            <p>
+              I work on <strong>geometric statistics</strong> with a focus on <strong>applied differential geometry to statistical manifolds</strong>. My current interests include
+              <strong>Riemannian/quotient geometry on SPD and full-rank correlation matrices</strong>,
+              <strong>log-Euclidean metrics for statistics on matrix manifolds</strong>,
+              <strong>orbit-type stratification and geometry of rank-deficient limits</strong>.
+            </p>
+            <div class="chips" aria-label="Research keywords">
+              <span class="chip">Matrix manifolds</span>
+              <span class="chip">Log-Euclidean geometry</span>
+              <span class="chip">SPD matrices</span>
+              <span class="chip">Correlation matrices</span>
+              <span class="chip">Orbit-type stratification</span>
+              <span class="chip">Riemannian submersion</span>
+              <span class="chip">Principal bundles</span>
+            </div>
+            <p class="muted">
+              <strong>Quick links:</strong>
+              <a href="CV.pdf">CV</a> ·
+              <a href="https://scholar.google.com/citations?user=As0pUxcAAAAJ&hl=en&oi=ao">Google Scholar</a>
+              <!-- <a href="https://github.com/">GitHub</a> · -->
+              <!-- <a href="https://www.linkedin.com/">LinkedIn</a> -->
+            </p>
+          </div>
+
+          <div class="card" id="contact">
+            <h2>Contact</h2>
+            <p style="margin:0">
+              <strong>Email:</strong> <a href="mailto:olivier.bisson@inria.fr">olivier.bisson@inria.fr</a><br/>
+              <strong>Office:</strong> Fermat, room F202<br/>
+              <strong>Postal address:</strong> Inria, 2004 Rte des Lucioles, 06560 Valbonne
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ====== RESEARCH ====== -->
+    <section>
+      <div class="card" id="research">
+        <h2>Research</h2>
+        <p>
+          My research develops <strong>differential-geometric tools for statistics on matrix manifolds</strong>,
+          with a focus on <strong>symmetric positive-definite (SPD) matrices</strong> and
+          <strong>full-rank correlation matrices</strong>. I study how geometric choices—especially
+          <strong>log-Euclidean metrics</strong> and <strong>quotient constructions</strong>—shape geodesics,
+          Fréchet means, polynomial regressions... and how these models behave near rank-deficient limits through
+          <strong>orbit-type stratification</strong>. A recurring goal is to keep the geometry mathematically faithful
+          while remaining computationally practical for real data, such as dynamic functional connectivity.
+        </p>
+
+        <ul>
+          <li>Riemannian and quotient geometry on SPD and correlation manifolds (principal-bundle, Riemannian submersion).</li>
+          <li>Log-Euclidean frameworks for efficient statistical computations (geodesics, means, trajectories).</li>
+          <li>Differential calculus for quotient-geodesic computations (e.g., derivative of the stretch tensor).</li>
+          <li>Extensions toward rank-deficient boundaries (stratified/PSD limits and finite-distance strata).</li>
+          <li>Open-source contributions: implementations of several Riemannian metrics and matrix manifolds in <a href="https://github.com/geomstats/geomstats">geomstats</a>.</li>
+        </ul>
+
+        <!--
+        <div class="two" style="margin-top:12px">
+          <div class="item">
+            <div class="title">Project: Log-Euclidean geometry for correlation data</div>
+            <div class="meta">Geometric and statistical models for full-rank correlation matrices, with applications to smooth brain connectivity trajectories.</div>
+            <div class="links">
+              <a href="#pubs">paper(s)</a>
+              <a href="#">code</a>
+              <a href="#">slides</a>
+            </div>
+          </div>
+          <div class="item">
+            <div class="title">Project: Quotient geometry and practical derivatives</div>
+            <div class="meta">Tools for computing and differentiating quotient-geometric quantities (e.g., stretch tensors) that arise in geodesic and alignment problems.</div>
+            <div class="links">
+              <a href="#pubs">paper(s)</a>
+              <!-- <a href="#">code</a> -->
+              <!-- <a href="#">slides</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== (PRE)PUBLICATIONS ====== -->
+    <section>
+      <div class="card" id="pubs">
+        <h2>(Pre)Publications</h2>
+
+        <div class="list" role="list">
+
+          <div class="item" role="listitem">
+            <div class="titleRow">
+              <div class="title">Olivier Bisson, Xavier Pennec. <em>Log-Euclidean Lie Groups</em>. 
+                <a href="https://arxiv.org/abs/2511.13380">arXiv</a> 
+              </div>
+            </div>
+            <div class="meta">arXiv preprint arXiv:2511.13380 (2025).</div>
+          </div>
+
+          <div class="item" role="listitem">
+            <div class="titleRow">
+              <div class="title">Olivier Bisson, Yanis Aeschlimann, Samuel Deslauriers-Gauthier, Xavier Pennec. <em>Log-Euclidean Frameworks for Smooth Brain Connectivity Trajectories</em>. 
+                <a href="https://arxiv.org/abs/2507.15374">arXiv</a> 
+                <a href="https://doi.org/10.1007/978-3-032-03924-8_20">DOI</a> 
+              </div>
+            </div>
+            <div class="meta">International Conference on Geometric Science of Information (GSI 2025), pp. 194–204. Springer. DOI: 10.1007/978-3-032-03924-8_20. <span class="muted">(Nominated for Best Paper Award.)</span></div>
+          </div>
+          
+          <div class="item" role="listitem">
+            <div class="titleRow">
+              <div class="title">Olivier Bisson, Xavier Pennec. <em>Differential of the Stretch Tensor for Any Dimension with Applications to Quotient Geodesics</em>.
+                <a href="https://comptes-rendus.academie-sciences.fr/mathematique/item/10.5802/crmath.692.pdf">PDF</a>
+                <a href="https://doi.org/10.5802/crmath.692">DOI</a>
+              </div>
+            </div>
+            <div class="meta">Comptes Rendus. Mathématique, 362 (2024), pp. 1847–1856. DOI: 10.5802/crmath.692.</div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TALKS ====== -->
+    <section>
+      <div class="card" id="talks">
+        <h2>Talks &amp; Conferences</h2>
+        <div class="list">
+
+          <div class="item">
+            <div class="title">Mini-course: Quotient Spaces and Related Differential Geometry</div>
+            <div class="meta">EPIONE Seminar, Inria Sophia Antipolis, France — 12 Dec. 2025.</div>
+          </div>
+
+          <div class="item">
+            <div class="title">Log-Euclidean Frameworks for Smooth Brain Connectivity Trajectories</div>
+            <div class="meta">Geometric Science of Information (GSI), St Malo, France — 29 Oct. 2025. <span class="muted">(nominated for Best Paper Award.)</span></div>
+          </div>
+
+          <div class="item">
+            <div class="title">Geometry, Stratification and Applications of Structured Correlation Matrices</div>
+            <div class="meta">EPIONE Seminar, Inria Sophia Antipolis, France — 5 Mar. 2025.</div>
+          </div>
+
+          <div class="item">
+            <div class="title">Differentiable Structures on Correlation Matrices and Applications in Neuroimaging</div>
+            <div class="meta">Infinite-dimensional Geometry: Theory and Applications, ESI (Vienna), Austria — 10 Feb. 2025.</div>
+          </div>
+
+          <div class="item">
+            <div class="title">Geometry, Stratification and Applications of Structured Correlation Matrices</div>
+            <div class="meta">3IA Côte d’Azur PhD Seminar, Nice, France — 6 Dec. 2024.</div>
+          </div>
+
+          <div class="item">
+            <div class="title">Riemannian Metrics on Correlation Matrices with Applications in Neuroimaging</div>
+            <div class="meta">Mathematical Imaging and Random Geometry (RT MAIAGES), Nice, France — 25 Nov. 2024.</div>
+          </div>
+
+          <div class="item">
+            <div class="title">Introduction to the Riemannian Geometry of Correlation Matrices</div>
+            <div class="meta">EPIONE Seminar, Inria Sophia Antipolis, France — 18 Oct. 2024.</div>
+          </div>
+
+          <div class="item">
+            <div class="title">A framework to put metrics on quotient spaces, with application in medical image analysis</div>
+            <div class="meta">EPIONE annual retreat, Auron, France — Feb. 2024.</div>
+          </div>
+
+          <div class="item">
+            <div class="title">Poster: Geometry, stratification and applications of structured correlation matrices</div>
+            <div class="meta">3IA scientific day, SKEMA, Sophia Antipolis, France — Dec. 2023.</div>
+          </div>
+
+          <div class="item">
+            <div class="title">A framework to put metrics on quotient spaces, with application in medical image analysis</div>
+            <div class="meta">EPIONE Seminar, Inria Sophia Antipolis, France — Oct. 2023.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ====== TEACHING ====== -->
+    <section>
+      <div class="card" id="teaching">
+        <h2>Teaching</h2>
+        <div class="list">
+
+          <div class="item">
+            <div class="title">Introduction à l’analyse (L1) — Université Côte d’Azur</div>
+            <div class="meta">2025–2026 · Teaching assistant (TD). Topics: sets & functions, limits/continuity, differentiability, function study, injective/surjective/bijective maps, integrals & primitives.</div>
+          </div>
+
+          <div class="item">
+            <div class="title">Compléments d’algèbre linéaire (L2) — Université Côte d’Azur</div>
+            <div class="meta">2024–2025 · Teaching assistant (TD). Topics: orthogonality and projections, Gram–Schmidt, least squares, isometries, PCA (intro).</div>
+          </div>
+
+          <div class="item">
+            <div class="title">Calculus II (L2) — Université Côte d’Azur</div>
+            <div class="meta">2024–2025 · Teaching assistant (TD). Topics: complex numbers, linear ODEs, multivariable calculus (partials, gradient, tangent plane, level sets, local extrema).</div>
+          </div>
+
+          <div class="item">
+            <div class="title">Maths Approfondissement 2 (L1) — Université Côte d’Azur</div>
+            <div class="meta">2023–2024 · Teaching assistant (TD). Topics: exponential/logarithm refreshers, linear ODEs, Riemann integration basics, partial fraction decomposition, Euclidean vector geometry.</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+<!-- ====== PERSONAL ====== -->
+    <section>
+      <div class="card" id="personal">
+        <h2>Personal</h2>
+        <div class="personalGrid">
+          <div>
+            <p>
+              I come from south of France and I enjoy <strong>rock climbing</strong>, <strong>sailing</strong>,
+              <strong>beach volleyball</strong>, <strong>going out</strong> and <strong>traveling</strong>. I love the sea.
+              I am deeply conviced that <strong>anyone</strong> can do maths.
+            </p>
+            <p class="muted" style="text-align:center">
+              Live a life of ease
+            </p>
+          </div>
+          <div class="photoGrid" aria-label="Personal photos">
+            <!-- Add your own images next to index.html and replace the filenames below -->
+            <img class="funPhoto" src="fun1.jpeg" onerror="this.style.display='none'" />
+            <img class="funPhoto" src="fun2.jpeg" onerror="this.style.display='none'" />
+            <img class="funPhoto" src="fun3.jpeg" onerror="this.style.display='none'" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Olivier Bisson
+    </footer>
+  </main>
+
+  <script>
+    // ====== Theme toggle (stores preference) ======
+    const root = document.documentElement;
+    const btn = document.getElementById('themeBtn');
+
+    function setTheme(t){
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+    }
+
+    const saved = localStorage.getItem('theme');
+    if(saved === 'dark' || saved === 'light') setTheme(saved);
+
+    btn?.addEventListener('click', () => {
+      const cur = root.getAttribute('data-theme');
+      if(cur === 'dark') setTheme('light');
+      else if(cur === 'light') setTheme('dark');
+      else {
+        // If no explicit theme, pick the opposite of system.
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setTheme(prefersDark ? 'light' : 'dark');
+      }
+    });
+
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
