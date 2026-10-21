@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Olivier Bisson — geometric statistics, applied differential geometry." />
+  <meta name="description" content="Olivier Bisson — differential geometry, stratified spaces, correlation matrices, and geometric statistics." />
   <title>Olivier Bisson — Research</title>
 
   <!-- Favicons (optional). Put favicon.ico in the same folder. -->
@@ -17,6 +17,7 @@
       --text:#e9eefc;
       --muted:#b8c2e0;
       --link:#8ab4ff;
+      --notice:#ffb4ab;
       --border:rgba(255,255,255,.10);
       --shadow: 0 10px 30px rgba(0,0,0,.35);
       --radius: 18px;
@@ -31,6 +32,7 @@
         --text:#0b1220;
         --muted:#4b5565;
         --link:#1d4ed8;
+        --notice:#a61b29;
         --border:rgba(0,0,0,.10);
         --shadow: 0 12px 30px rgba(0,0,0,.08);
       }
@@ -41,6 +43,7 @@
       --text:#e9eefc;
       --muted:#b8c2e0;
       --link:#8ab4ff;
+      --notice:#ffb4ab;
       --border:rgba(255,255,255,.10);
       --shadow: 0 10px 30px rgba(0,0,0,.35);
     }
@@ -50,6 +53,7 @@
       --text:#0b1220;
       --muted:#4b5565;
       --link:#1d4ed8;
+      --notice:#a61b29;
       --border:rgba(0,0,0,.10);
       --shadow: 0 12px 30px rgba(0,0,0,.08);
     }
@@ -151,6 +155,19 @@
     h2{margin:0 0 10px; font-size: 18px}
     p{margin:10px 0}
     .muted{color:var(--muted)}
+    h3{margin:22px 0 10px; font-size:16px}
+    .jobNotice{
+      border-left:3px solid var(--notice);
+      padding:8px 12px;
+      color:var(--notice);
+      font-weight:600;
+    }
+    @media (max-width:640px){
+      .nav{flex-wrap:wrap; gap:6px}
+      .brand{min-width:0; flex:1}
+      .nav nav{order:3; width:100%; display:flex; flex-wrap:wrap}
+      section > .card{scroll-margin-top:135px}
+    }
 
     .chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
     .chip{
@@ -303,19 +320,21 @@
             <h1>Olivier Bisson</h1>
             <div class="muted">PhD student in Geometric Statistics at Inria, Université Côte d’Azur</div>
             <p>
-              I work on <strong>geometric statistics</strong> with a focus on <strong>applied differential geometry to statistical manifolds</strong>. My current interests include
-              <strong>Riemannian/quotient geometry on SPD and full-rank correlation matrices</strong>,
-              <strong>log-Euclidean metrics for statistics on matrix manifolds</strong>,
-              <strong>orbit-type stratification and geometry of rank-deficient limits</strong>.
+              I study <strong>differential geometry and geometric statistics on smooth manifolds and stratified spaces</strong>,
+              with a focus on <strong>correlation matrices across ranks</strong>.
+              My work connects quotient geometry, orbit-type stratification, and rank-constrained geodesics,
+              alongside log-Euclidean methods for matrix-valued data.
             </p>
+            <p class="muted">My PhD defense is scheduled for <strong>12 November 2026</strong>, under the supervision of Xavier Pennec.</p>
+            <p class="jobNotice">I am seeking postdoctoral opportunities in differential geometry, stratified spaces, and geometric statistics.</p>
             <div class="chips" aria-label="Research keywords">
-              <span class="chip">Matrix manifolds</span>
-              <span class="chip">Log-Euclidean geometry</span>
-              <span class="chip">SPD matrices</span>
+              <span class="chip">Stratified spaces</span>
+              <span class="chip">Quotient geometry</span>
               <span class="chip">Correlation matrices</span>
-              <span class="chip">Orbit-type stratification</span>
-              <span class="chip">Riemannian submersion</span>
-              <span class="chip">Principal bundles</span>
+              <span class="chip">Rank-constrained geodesics</span>
+              <span class="chip">Curvature &amp; holonomy</span>
+              <span class="chip">Geometric statistics</span>
+              <span class="chip">Log-Euclidean geometry</span>
             </div>
             <p class="muted">
               <strong>Quick links:</strong>
@@ -345,153 +364,95 @@
       <div class="card" id="research">
         <h2>Research</h2>
         <p>
-          My research develops <strong>differential-geometric tools for statistics on smooth manifolds</strong>,
-          with a focus on <strong>symmetric positive-definite (SPD) matrices</strong> and
-          <strong>full-rank correlation matrices</strong>. I study how geometric choices—especially
-          <strong>log-Euclidean metrics</strong> and <strong>quotient constructions</strong>—shape geodesics,
-          Fréchet means, polynomial regressions... and how these models behave near rank-deficient limits through
-          <strong>orbit-type stratification</strong>. A recurring goal is to keep the geometry mathematically faithful
-          while remaining computationally practical for real data, such as dynamic functional connectivity.
+          My research concerns the <strong>geometry of spaces with rank constraints and singularities</strong>,
+          especially correlation matrices viewed as quotients of products of spheres.
+          I study how the Riemannian geometry of each fixed-rank stratum relates to the
+          <strong>intrinsic length geometry of the whole stratified space</strong>.
+          Questions about geodesics, curvature, holonomy, and volume measures connect these structures
+          to geometric statistics and applications in brain connectivity.
         </p>
-
         <ul>
-          <li>Riemannian and quotient geometry on SPD and correlation manifolds (principal-bundle, Riemannian submersion).</li>
-          <li>Log-Euclidean frameworks for efficient statistical computations (geodesics, means, trajectories).</li>
-          <li>Differential calculus for quotient-geodesic computations (e.g., derivative of the stretch tensor).</li>
-          <li>Extensions toward rank-deficient boundaries (stratified/PSD limits and finite-distance strata).</li>
-          <li>Open-source contributions: implementations of several Riemannian metrics and matrix manifolds in <a href="https://github.com/geomstats/geomstats">geomstats</a>.</li>
+          <li><strong>Stratified and quotient geometry:</strong> orbit-type stratifications, fixed-rank reduction, intrinsic distances, and rank-constrained geodesics.</li>
+          <li><strong>Connections, curvature, and holonomy:</strong> mechanical connections and horizontal lifts in matrix quotient spaces.</li>
+          <li><strong>Volume and probability:</strong> quotient Riemannian volume, Euclidean surface measures, and sampling on low-rank correlation spaces.</li>
+          <li><strong>Log-Euclidean geometry:</strong> isometries and quotient metrics on positive-definite and full-rank correlation matrices.</li>
+          <li><strong>Geometric statistics:</strong> Fréchet means, regression, and smooth brain connectivity trajectories; open-source contributions to <a href="https://github.com/geomstats/geomstats">geomstats</a>.</li>
         </ul>
-
-        <!--
-        <div class="two" style="margin-top:12px">
-          <div class="item">
-            <div class="title">Project: Log-Euclidean geometry for correlation data</div>
-            <div class="meta">Geometric and statistical models for full-rank correlation matrices, with applications to smooth brain connectivity trajectories.</div>
-            <div class="links">
-              <a href="#pubs">paper(s)</a>
-              <a href="#">code</a>
-              <a href="#">slides</a>
-            </div>
-          </div>
-          <div class="item">
-            <div class="title">Project: Quotient geometry and practical derivatives</div>
-            <div class="meta">Tools for computing and differentiating quotient-geometric quantities (e.g., stretch tensors) that arise in geodesic and alignment problems.</div>
-            <div class="links">
-              <a href="#pubs">paper(s)</a>
-              <!-- <a href="#">code</a> -->
-              <!-- <a href="#">slides</a> -->
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
-    <!-- ====== (PRE)PUBLICATIONS ====== -->
+    <!-- ====== PUBLICATIONS ====== -->
     <section>
       <div class="card" id="pubs">
-        <h2>(Pre)Publications</h2>
-
-        <div class="list" role="list">
-
-          <div class="item" role="listitem">
-            <div class="titleRow">
-              <div class="title">Olivier Bisson, Xavier Pennec. <em>Log-Euclidean Lie Groups</em>. 
-                <a href="https://arxiv.org/abs/2511.13380">arXiv</a> 
-              </div>
+        <h2>Publications</h2>
+        <section aria-labelledby="journal-papers">
+          <h3 id="journal-papers">Published journal papers</h3>
+          <div class="list" role="list">
+            <div class="item" role="listitem">
+              <div class="title">Olivier Bisson, Xavier Pennec. <em>Differential of the Stretch Tensor for Any Dimension with Applications to Quotient Geodesics</em>.</div>
+              <div class="meta">Comptes Rendus. Mathématique, 362 (2024), pp. 1847–1856.</div>
+              <div class="links"><a href="https://doi.org/10.5802/crmath.692">DOI</a><a href="https://comptes-rendus.academie-sciences.fr/mathematique/item/10.5802/crmath.692.pdf">PDF</a></div>
             </div>
-            <div class="meta">arXiv preprint arXiv:2511.13380 (2025).</div>
           </div>
-
-          <div class="item" role="listitem">
-            <div class="titleRow">
-              <div class="title">Olivier Bisson, Yanis Aeschlimann, Samuel Deslauriers-Gauthier, Xavier Pennec. <em>Log-Euclidean Frameworks for Smooth Brain Connectivity Trajectories</em>. 
-                <a href="https://arxiv.org/abs/2507.15374">arXiv</a> 
-                <a href="https://doi.org/10.1007/978-3-032-03924-8_20">DOI</a> 
-              </div>
+        </section>
+        <section aria-labelledby="conference-papers">
+          <h3 id="conference-papers">Conference papers</h3>
+          <div class="list" role="list">
+            <div class="item" role="listitem">
+              <div class="title">Olivier Bisson, Yanis Aeschlimann, Samuel Deslauriers-Gauthier, Xavier Pennec. <em>Log-Euclidean Frameworks for Smooth Brain Connectivity Trajectories</em>.</div>
+              <div class="meta">Geometric Science of Information (GSI 2025), pp. 194–204. Springer. <strong>Nominated for Best Paper Award.</strong></div>
+              <div class="links"><a href="https://doi.org/10.1007/978-3-032-03924-8_20">DOI</a><a href="https://arxiv.org/abs/2507.15374">arXiv</a></div>
             </div>
-            <div class="meta">International Conference on Geometric Science of Information (GSI 2025), pp. 194–204. Springer. DOI: 10.1007/978-3-032-03924-8_20. <span class="muted">(Nominated for Best Paper Award.)</span></div>
           </div>
-          
-          <div class="item" role="listitem">
-            <div class="titleRow">
-              <div class="title">Olivier Bisson, Xavier Pennec. <em>Differential of the Stretch Tensor for Any Dimension with Applications to Quotient Geodesics</em>.
-                <a href="https://comptes-rendus.academie-sciences.fr/mathematique/item/10.5802/crmath.692.pdf">PDF</a>
-                <a href="https://doi.org/10.5802/crmath.692">DOI</a>
-              </div>
+        </section>
+        <section aria-labelledby="preprints">
+          <h3 id="preprints">Preprints</h3>
+          <div class="list" role="list">
+            <div class="item" role="listitem">
+              <div class="title">Olivier Bisson, David Loiseaux, Xavier Pennec. <em>On the Geometry of Low Rank Correlation Matrices</em>.</div>
+              <div class="meta">arXiv preprint, 2026.</div>
+              <div class="links"><a href="https://arxiv.org/abs/2610.28475">arXiv:2610.28475</a></div>
             </div>
-            <div class="meta">Comptes Rendus. Mathématique, 362 (2024), pp. 1847–1856. DOI: 10.5802/crmath.692.</div>
+            <div class="item" role="listitem">
+              <div class="title">Olivier Bisson, Xavier Pennec. <em>Log-Euclidean Lie Groups</em>.</div>
+              <div class="meta">arXiv preprint, 2025.</div>
+              <div class="links"><a href="https://arxiv.org/abs/2511.13380">arXiv:2511.13380</a></div>
+            </div>
           </div>
-          
-        </div>
+        </section>
       </div>
     </section>
 
-    <!-- ====== TALKS ====== -->
+    <!-- ====== SELECTED TALKS ====== -->
     <section>
       <div class="card" id="talks">
-        <h2>Talks &amp; Conferences</h2>
+        <h2>Selected talks &amp; conferences</h2>
+        <p class="muted">A selection of presentations, including a conference poster. The <a href="CV.pdf">CV</a> contains the full list.</p>
         <div class="list">
-          
+          <div class="item">
+            <div class="title">On the Geometry of Low Rank Correlation Matrices</div>
+            <div class="meta"><a href="https://www.imsi.institute/activities/statistical-foundations-for-the-analysis-of-non-euclidean-data/">Statistical Foundations for the Analysis of Non-Euclidean Data</a>, Institute for Mathematical and Statistical Innovation (IMSI), University of Chicago, Chicago, USA — 21 Oct. 2026.</div>
+          </div>
           <div class="item">
             <div class="title">Poster: Log-Euclidean Lie Groups and rs-fMRI Brain Connectivity Trajectories</div>
-            <div class="meta">Foundations of Computational Mathematics (FoCM), Faculty of Mathematics, University of Vienna, Austria, 8–18 July 2026</div>
+            <div class="meta">Foundations of Computational Mathematics (FoCM), Faculty of Mathematics, University of Vienna, Austria — 8–18 July 2026.</div>
           </div>
-
           <div class="item">
             <div class="title">Log-Euclidean Geometry of Full-Rank Correlation Matrices</div>
-            <div class="meta"> Topology and Machine Learning 2026 (GML 2026), Sorbonne Université, Paris, France, — 18-22 May. 2026.</div>
+            <div class="meta">Geometry, Topology and Machine Learning 2026 (GML 2026), Sorbonne Université, Paris, France — 18–22 May 2026.</div>
           </div>
-
-          <div class="item">
-            <div class="title">Mini-course: Quotient Spaces and Related Differential Geometry</div>
-            <div class="meta">EPIONE Seminar, Inria Sophia Antipolis, France — 12 Dec. 2025.</div>
-          </div>
-
           <div class="item">
             <div class="title">Log-Euclidean Frameworks for Smooth Brain Connectivity Trajectories</div>
-            <div class="meta">Geometric Science of Information (GSI), St Malo, France — 29 Oct. 2025. <span class="muted">(nominated for Best Paper Award.)</span></div>
+            <div class="meta">Geometric Science of Information (GSI), St Malo, France — 29 Oct. 2025. Nominated for Best Paper Award.</div>
           </div>
-
-          <div class="item">
-            <div class="title">Geometry, Stratification and Applications of Structured Correlation Matrices</div>
-            <div class="meta">EPIONE Seminar, Inria Sophia Antipolis, France — 5 Mar. 2025.</div>
-          </div>
-
           <div class="item">
             <div class="title">Differentiable Structures on Correlation Matrices and Applications in Neuroimaging</div>
             <div class="meta">Infinite-dimensional Geometry: Theory and Applications, ESI (Vienna), Austria — 10 Feb. 2025.</div>
           </div>
-
-          <div class="item">
-            <div class="title">Geometry, Stratification and Applications of Structured Correlation Matrices</div>
-            <div class="meta">3IA Côte d’Azur PhD Seminar, Nice, France — 6 Dec. 2024.</div>
-          </div>
-
           <div class="item">
             <div class="title">Riemannian Metrics on Correlation Matrices with Applications in Neuroimaging</div>
             <div class="meta">Mathematical Imaging and Random Geometry (RT MAIAGES), Nice, France — 25 Nov. 2024.</div>
           </div>
-
-          <div class="item">
-            <div class="title">Introduction to the Riemannian Geometry of Correlation Matrices</div>
-            <div class="meta">EPIONE Seminar, Inria Sophia Antipolis, France — 18 Oct. 2024.</div>
-          </div>
-
-          <div class="item">
-            <div class="title">A framework to put metrics on quotient spaces, with application in medical image analysis</div>
-            <div class="meta">EPIONE annual retreat, Auron, France — Feb. 2024.</div>
-          </div>
-
-          <div class="item">
-            <div class="title">Poster: Geometry, stratification and applications of structured correlation matrices</div>
-            <div class="meta">3IA scientific day, SKEMA, Sophia Antipolis, France — Dec. 2023.</div>
-          </div>
-
-          <div class="item">
-            <div class="title">A framework to put metrics on quotient spaces, with application in medical image analysis</div>
-            <div class="meta">EPIONE Seminar, Inria Sophia Antipolis, France — Oct. 2023.</div>
-          </div>
-
         </div>
       </div>
     </section>
