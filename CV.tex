@@ -6,8 +6,12 @@
 \documentclass[11pt,a4paper,sans]{moderncv}
 
 % Style
-\moderncvstyle[nosymbols]{classic} % portable letter labels for contact details
-\moderncvcolor{blue}         % options: blue, orange, green, red, purple, grey, black
+\moderncvstyle[nosymbols]{classic}
+\moderncvcolor{black}
+% Preserve the original monochrome header and envelope contact icon.
+\renewcommand*{\emailsymbol}{\marvosymbol{66}~}
+\colorlet{color2}{black}
+\renewcommand*{\namestyle}[1]{{\namefont\textcolor{gray}{Olivier}\textcolor{black}{Bisson}}}
 
 % Encoding
 \usepackage[utf8]{inputenc}
@@ -37,7 +41,6 @@
 \email{olivier.bisson@inria.fr}
 
 % Optional: website / scholar (fill later)
-\homepage{olivierbisson.github.io}
 % \social[github]{yourhandle}
 % \social[googlescholar]{YOURID}{Google Scholar}
 
@@ -87,7 +90,16 @@
 %  PUBLICATIONS
 %----------------------------------------------------------------------------------------
 
-\section{Published journal papers}
+\section{Preprints}
+
+\cvitem{2026}{\textbf{O. Bisson}, D. Loiseaux, X. Pennec.
+\emph{On the Geometry of Low Rank Correlation Matrices}.
+\href{https://arxiv.org/abs/2610.28475}{arXiv:2610.28475}.}
+
+\cvitem{2025}{\textbf{O. Bisson}, X. Pennec. \emph{Log-Euclidean Lie Groups}.
+\href{https://arxiv.org/abs/2511.13380}{arXiv:2511.13380}.}
+
+\section{Journal papers}
 
 \cvitem{2024}{\textbf{O. Bisson}, X. Pennec.
 \emph{Differential of the Stretch Tensor for Any Dimension with Applications to Quotient Geodesics}.
@@ -103,15 +115,6 @@ In: \emph{Geometric Science of Information (GSI)}, St Malo, France, 2025, pp. 19
 Springer. \href{https://doi.org/10.1007/978-3-032-03924-8_20}{doi:10.1007/978-3-032-03924-8\_20}.
 \href{https://arxiv.org/abs/2507.15374}{arXiv:2507.15374}.
 \textit{Nominated for Best Paper Award.}}
-
-\section{Preprints}
-
-\cvitem{2026}{\textbf{O. Bisson}, D. Loiseaux, X. Pennec.
-\emph{On the Geometry of Low Rank Correlation Matrices}.
-\href{https://arxiv.org/abs/2610.28475}{arXiv:2610.28475}.}
-
-\cvitem{2025}{\textbf{O. Bisson}, X. Pennec. \emph{Log-Euclidean Lie Groups}.
-\href{https://arxiv.org/abs/2511.13380}{arXiv:2511.13380}.}
 
 %----------------------------------------------------------------------------------------
 %  TALKS
